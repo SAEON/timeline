@@ -41,9 +41,14 @@
     <div id="timeline-embed"></div>
 
     <script type="text/javascript">
+      const DEFAULT_SOURCE = "1nDhnLDOtmMdvt8OGEDOYuO32yfb2RNlQLzY94jhBFbI";
+      const source =
+        new URL(window.location.href).searchParams.get("source") ??
+        DEFAULT_SOURCE;
+
       timeline = new TL.Timeline(
         "timeline-embed",
-        "https://docs.google.com/spreadsheets/d/1nDhnLDOtmMdvt8OGEDOYuO32yfb2RNlQLzY94jhBFbI/pubhtml"
+        `https://docs.google.com/spreadsheets/d/${source}/pubhtml`
       );
     </script>
   </body>
