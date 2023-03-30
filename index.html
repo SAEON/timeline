@@ -6,10 +6,7 @@
     <meta name="description" content="TimelineJS Embed" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-touch-fullscreen" content="yes" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
     <link
       title="timeline-styles"
@@ -41,15 +38,18 @@
     <div id="timeline-embed"></div>
 
     <script type="text/javascript">
-      const DEFAULT_SOURCE = "1nDhnLDOtmMdvt8OGEDOYuO32yfb2RNlQLzY94jhBFbI";
-      const source =
-        new URL(window.location.href).searchParams.get("source") ??
-        DEFAULT_SOURCE;
+      const DEFAULT_SOURCE = '1nDhnLDOtmMdvt8OGEDOYuO32yfb2RNlQLzY94jhBFbI'
+      const source = new URL(window.location.href).searchParams.get('source') ?? DEFAULT_SOURCE
 
       timeline = new TL.Timeline(
-        "timeline-embed",
-        `https://docs.google.com/spreadsheets/d/${source}/pubhtml`
-      );
+        'timeline-embed',
+        `https://docs.google.com/spreadsheets/d/${source}/pubhtml`,
+        {
+          hash_bookmark: true,
+          initial_zoom: 1,
+          timenav_position: 'bottom',
+        }
+      )
     </script>
   </body>
 </html>
