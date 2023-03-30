@@ -8,7 +8,7 @@ networks:
 
 services:
   client:
-    image: $CLIENT_IMAGE
+    image: $DOCKER_IMAGE
     deploy:
       replicas: 1
       placement:
@@ -24,6 +24,6 @@ services:
         condition: any
         delay: 30s
     ports:
-      - 7011:80
+      - 7012:80
     networks:
       - timeline
