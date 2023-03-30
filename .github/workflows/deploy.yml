@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: ${{ github.repository }}_timeline
+      IMAGE_NAME: ${{ github.repository }}
     outputs:
       image: ${{ steps.meta.outputs.tags }}
     steps:
