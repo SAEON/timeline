@@ -50,10 +50,9 @@ jobs:
   deploy:
     needs: [build]
     env:
-      BRANCH_REF: ${{ inputs.stack }}
-      DEPLOY_SOURCE: deploy/${{ inputs.stack }}/stack.yml
-      STACK_COMPOSE_PATH: /home/runner/timeline/deploy/${{ inputs.stack }}/stack.yml
-      STACK_CONFIG_PATH: /home/runner/timeline/deploy/${{ inputs.stack }}/stack.env
+      DEPLOY_SOURCE: deploy/stack.yml
+      STACK_COMPOSE_PATH: /home/runner/timeline/deploy/stack.yml
+      STACK_CONFIG_PATH: /home/runner/timeline/deploy/stack.env
     runs-on: saeon
     steps:
       - name: Check out source code (shared)
@@ -80,4 +79,4 @@ jobs:
           port: ${{ env.SWARM_SSH_PORT }}
           script: |
             echo "DOCKER_IMAGE=${{ needs.build.outputs.image }}" > ${{ env.STACK_CONFIG_PATH }}
-            sudo /opt/deploy-docker-stack.sh ${{ env.STACK_COMPOSE_PATH }} ${{ env.STACK_CONFIG_PATH }} timeline_${{ inputs.stack }}
+            sudo /opt/deploy-docker-stack.sh ${{ env.STACK_COMPOSE_PATH }} ${{ env.STACK_CONFIG_PATH }} timeline
