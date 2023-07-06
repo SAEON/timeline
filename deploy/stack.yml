@@ -23,6 +23,10 @@ services:
       restart_policy:
         condition: any
         delay: 30s
+      resources:
+        limits:
+          cpus: "1"
+          memory: 200M
     ports:
       - 7012:80
     networks:
